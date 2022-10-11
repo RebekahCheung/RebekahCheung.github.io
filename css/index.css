@@ -1,0 +1,365 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-primary: 'Tahoma', sans-serif;
+    --ff-secondary: 'Verdana', sans-serif;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-text: white;
+    --clr-bg: #28292C;
+    --clr-accent: #6e7188;
+    --clr-highlight: #ff0000;
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    --fs-footer: 0.65rem;
+}
+
+@media (min-width: 800px) {
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+        --fs-footer: 0.85rem;
+    }
+}
+
+/*Styles*/
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.logoimg {
+    display: block;
+    max-width: 30%;
+}
+
+.nav {
+    position: fixed;
+    background: var(--clr-bg);
+    color: var(--clr-text);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index:100;
+
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link{
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav__link:hover{
+    color: var(--clr-accent);
+}
+
+.nav-toggle{
+    padding: 0.5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(0.625turn);
+}
+
+.nav-open .hamburger::before{
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after{
+    opacity: 0;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-text);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger::before {top: 6px; }
+.hamburger::after {bottom: 6px; }
+
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+/* Projects Button */
+
+.btn {
+    display: inline-block;
+    padding: 0.5em 2.5em;
+    margin: 32px;
+    background: var(--clr-accent);
+    color: var(--clr-text);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 300ms ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1)
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {font-size: var(--fs-h1)}
+h2 {font-size: var(--fs-h2)}
+h3 {font-size: var(--fs-h3)}
+
+p1 {
+    font-size: var(--fs-footer)
+}
+
+.section__title {
+    margin-bottom: 0.25em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}
+
+.section__title--intro strong{
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro {
+    background: var(--clr-accent);
+    padding: 0.3em 0.5em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 11em;
+    position: relative;
+    display: inline-block;
+}
+.section__subtitle--resume {
+    background: var(--clr-accent);
+    padding: 0.25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+.section__subtitle--aboutme {
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+.section__subtitle--projects {
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+.section__subtitle--learningmaterials {
+    background: var(--clr-accent);
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+
+/* Introduction */
+.intro {
+    position: relative;
+}
+
+.section__subtitle--intro {
+    align-self: start;
+    grid-column: -1 / 1;
+    grid-row: 2;
+    text-align: left;
+    position: relative;
+    width: calc(100%*1.5em);
+}
+
+/* Resume Section */
+.resume {
+    background-color: var(--clr-bg);
+    color: var(--clr-light);
+    text-align: left;
+}
+
+.section_-title--resume {
+    color: var(--clr-accent);
+    position: relative;
+}
+
+.resume {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+    .resume {
+        display: flex;
+        max-width: 1000px;
+        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.resume + .resume {
+    margin-left: 2em;
+}
+
+.aboutme {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+    .aboutme {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-column-gap: 2em;
+    }
+
+    .section__title--aboutme {
+        grid-area: title;
+    }
+    .section__subtitle--aboutme {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-left: 2em;
+        padding-right: calc(200px + 4em)   
+    }
+}
+
+.projects__body{
+    transition: transform 750ms cubic-bezier (0.5, 0, 0.5,1),
+    opacity 250ms linear;
+}
+
+.projects__body:hover{
+    color: var(--clr-highlight);
+    transform:scale(1.03);
+    opacity: 0.75;
+}
+
+.learningmaterials__body{
+    transition: transform 750ms cubic-bezier (0.5, 0, 0.5,1),
+    opacity 250ms linear;
+}
+
+.learningmaterials__body:hover{
+    color: var(--clr-text);
+    transform:scale(1.03);
+    opacity: 0.75;
+}
+
+.footer {
+    background:#111;
+    padding-left: 2em;
+}
+
+.footerend {
+    background:#111;
+    padding-left: 1em;
+    transition: transform 750ms cubic-bezier (0.5, 0, 0.5,1),
+    opacity 250ms linear;
+}
+
+.footer a {
+    color: inherit
+}
+
+.footerend:hover{
+    color: var(--clr-text);
+    transform:scale(1.01);
+    opacity: 0.75;
+}
